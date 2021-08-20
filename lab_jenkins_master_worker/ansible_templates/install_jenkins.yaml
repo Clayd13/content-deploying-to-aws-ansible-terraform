@@ -32,16 +32,6 @@
         - git
         - daemonize
 
-    - name: install dependencies
-      yum:
-        name: "{{ package }} "
-        state: present
-      vars:
-        package:
-        - wget
-        - java-1.8.0-openjdk-devel
-        - git
-        - daemonize
     - name: clone repo
       git:
         repo: https://github.com/linuxacademy/content-terraform-jenkins.git
