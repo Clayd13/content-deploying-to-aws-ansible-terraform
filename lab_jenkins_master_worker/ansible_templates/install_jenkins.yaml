@@ -4,6 +4,10 @@
   remote_user: ec2-user
   become_user: root
   tasks:
+    - name: install epel-release 
+      yum:
+        name: epel-release
+        state: latest 
     - name: install dependencies
       yum:
         name: "{{ package }} "
@@ -13,7 +17,7 @@
         - wget
         - java-1.8.0-openjdk-devel
         - git
-      
+        - daemonize
     - name: clone repo
       git:
         repo: https://github.com/linuxacademy/content-terraform-jenkins.git
